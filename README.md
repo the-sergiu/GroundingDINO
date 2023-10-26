@@ -18,6 +18,43 @@
 
 PyTorch implementation and pretrained models for Grounding DINO. For details, see the paper **[Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection](https://arxiv.org/abs/2303.05499)**.
 
+## Setup
+
+### 1.1. Download Weights and Models in relevant folders
+```
+download RAM and Tag2Text checkpoints to ./pretrained/ from https://github.com/majinyu666/recognize-anything/tree/main#toolbox-checkpoints
+
+pretrained\ram_swin_large_14m.pth
+pretrained\tag2text_swin_14m.pth
+
+# download GroundingDINO and SAM checkpoints to ./Grounded-Segment-Anything/ from step 1 of https://github.com/IDEA-Research/Grounded-Segment
+
+Grounded-Segment-Anything\sam_vit_h_4b8939.pth
+Grounded-Segment-Anything\groundingdino_swint_ogc.pth
+
+```
+
+### 1.2. Install actual modules using `requirements.txt` and `setup.py`
+```
+# Recognize Anything Reqs
+pip install -r recognize-anything-requirements.txt
+pip install -e .
+pip install git+https://github.com/xinyu1205/recognize-anything.git
+
+# Go into Grounded-SAM repo
+git clone https://github.com/IDEA-Research/Grounded-Segment-Anything.git
+
+cd ./Grounded-Segment-Anything
+
+pip install -r ./requirements.txt
+pip install ./segment_anything
+pip install ./GroundingDINO
+
+cd ..
+
+pip install opencv-python pycocotools matplotlib onnxruntime onnx ipykernel timm==0.4.12
+```
+
 ## :sun_with_face: Helpful Tutorial
 
 - :grapes: [[Read our arXiv Paper](https://arxiv.org/abs/2303.05499)]
